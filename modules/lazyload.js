@@ -76,4 +76,6 @@ $.fn.lazyload = function(options){
     return this;
 };
 
-$('.external-image, img[data-url]').lazyload();
+$(function() {
+    $('.external-image, img[data-url]').lazyload();
+});
