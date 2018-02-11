@@ -15,8 +15,8 @@ class Lazyload {
     public static function ThumbnailBeforeProduceHTML($thumb, &$attribs, &$linkAttribs) {
         global $wgRequest;
         if (defined('MW_API') && $wgRequest->getVal('action') == 'parse') return true;
-        if (isset($attribs['class']) && strpos($attribs['class'], 'no-lazy') !== false) return true;
         $attribs['data-url'] = $attribs['src'];
+        if (isset($attribs['class']) && strpos($attribs['class'], 'no-lazy') !== false) return true;
         $attribs['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         if (isset($attribs['srcset'])) {
             $attribs['data-srcset'] = $attribs['srcset'];
